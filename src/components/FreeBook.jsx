@@ -5,9 +5,8 @@ import Slider from "react-slick";
 import Cards from "./Cards";
 
 function FreeBook() {
-
   const filterbook = list.filter((data) => data.category === "Free");
-  console.log(filterbook);
+
   var settings = {
     dots: true,
     infinite: false,
@@ -22,48 +21,47 @@ function FreeBook() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
-
 
   return (
     <>
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 ">
         <h1 className="text-xl font-semibold pb-2">Free Offered Cources</h1>
         <p className="mb-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni esse, quae nam excepturi vero modi sequi reprehenderit provident.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni
+          esse, quae nam excepturi vero modi sequi reprehenderit provident.
         </p>
       </div>
       <div>
         <div className="slider-container">
           <Slider {...settings}>
-            {filterbook.map((item) => (<Cards item={item} key={item.id} />))}
+            {filterbook.map((item) => (
+              <Cards item={item} key={item.id} />
+            ))}
           </Slider>
         </div>
-        ;
-
       </div>
-
     </>
-  )
+  );
 }
 
 export default FreeBook;
