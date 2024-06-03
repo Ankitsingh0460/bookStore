@@ -3,6 +3,8 @@ import Home from "./home/Home";
 import Contect from "./components/Contect";
 import About from "./components/About";
 import Courses from "./cources/Courses";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 function App() {
   return (
     <>
@@ -12,6 +14,8 @@ function App() {
           <Route path="/course" element={<Courses />} />
           <Route path="/contect" element={<Contect />} />
           <Route path="/about" element={<About />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </>

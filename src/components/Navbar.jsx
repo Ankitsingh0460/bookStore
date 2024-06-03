@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import Login from "./Login";
 function Navbar() {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -40,7 +41,7 @@ function Navbar() {
         <a href="/course">Course</a>
       </li>
       <li>
-        <a href="/contect">Contect</a>
+        <a href="/contect">Contact</a>
       </li>
       <li>
         <a href="/about">About</a>
@@ -81,7 +82,9 @@ function Navbar() {
               {listItem}
             </ul>
           </div>
-          <a className=" text-2xl font-bold cursor-pointer">bookStore</a>
+          <a href="/" className=" text-2xl font-bold cursor-pointer">
+            bookStore
+          </a>
         </div>
         <div className="navbar-end space-x-3">
           <div className="navbar-center hidden lg:flex">
@@ -91,7 +94,7 @@ function Navbar() {
             <label className="px-3 py-2 border rounded-md  flex items-center gap-2">
               <input
                 type="text"
-                className="grow outline-none"
+                className="grow outline-none dark:bg-slate-900 dark:text-white"
                 placeholder="Search"
               />
               <svg
@@ -112,7 +115,7 @@ function Navbar() {
             {/* this hidden checkbox controls the state */}
             <input
               type="checkbox"
-              className="theme-controller  dark:bg-slate-900 dark:text-white"
+              className="theme-controller"
               value="synthwave"
             />
 
@@ -137,9 +140,13 @@ function Navbar() {
             </svg>
           </label>
           <div>
-            <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer">
+            <a
+              className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
+              onClick={() => document.getElementById("my_modal_3").showModal()}
+            >
               Login
             </a>
+            <Login />
           </div>
         </div>
       </div>

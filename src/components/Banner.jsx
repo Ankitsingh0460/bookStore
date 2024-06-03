@@ -3,8 +3,8 @@ import banner from "../../public/Banner.png";
 function Banner() {
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-20">
-        <div className="w-full md:w-1/2  mt-12 md:mt-20 order-2 md:order-1">
+      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 mt-20 flex flex-col md:flex-row dark:bg-slate-900 dark:text-white">
+        <div className="w-full md:w-1/2  mt-12 md:mt-20 order-2 md:order-1 dark:bg-slate-900 dark:text-white">
           <div>
             <h1 className="text-4xl font-bold  ">
               Hello, welcomes here to learn something{" "}
@@ -29,7 +29,7 @@ function Banner() {
             </svg>
             <input type="text" className="grow" placeholder="Email" />
           </label>
-          <button className="btn btn-secondary mt-6">Secondary</button>
+          <button className="btn btn-secondary mt-6">Subscribe</button>
         </div>
         <div className="w-full md:w-1/2 order-1">
           <img src={banner} className="w-92 h-92 md:my-20 md:mx-40" />
