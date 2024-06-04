@@ -1,18 +1,39 @@
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 function Signup() {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    };
+    await axios
+      .post("http://localhost:8001/user/signup", userInfo)
+      .then((res) => {
+        if (res.data) {
+          alert("signup Sucessfull");
+        }
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log("error" + error);
+          alert("error" + error.response.data.message);
+        }
+      });
+  };
+
   return (
     <>
-      <div className="flex h-screen items-center justify-center border-2">
+      <div className="flex h-screen items-center justify-center border-2 ">
         <div className="w-[600px]">
           <div className="modal-box">
             <form method="dialog" onSubmit={handleSubmit(onSubmit)}>
@@ -24,9 +45,11 @@ function Signup() {
                 ✕
               </Link>
 
-              <h3 className="font-bold text-lg text-center">Signup</h3>
+              <h3 className="font-bold text-lg text-center text-black">
+                Signup
+              </h3>
               <div className="mt-4">
-                <span className="m-2 text-lg">Name</span>
+                <span className="m-2 text-lg text-black">Name</span>
                 <br />
                 <input
                   type="text"
@@ -41,7 +64,7 @@ function Signup() {
                   </span>
                 )}
                 <div className="mt-4">
-                  <span className="m-2 text-lg">Email</span>
+                  <span className="m-2 text-lg text-black">Email</span>
                   <br />
                   <input
                     type="email"
@@ -56,7 +79,7 @@ function Signup() {
                     </span>
                   )}
                   <div className="mt-4">
-                    <span className="m-2 text-lg">Password</span>
+                    <span className="m-2 text-lg text-black">Password</span>
                     <br />
                     <input
                       type="password"

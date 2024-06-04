@@ -8,6 +8,7 @@ function Home() {
     <>
       <Navbar></Navbar>
       <Banner></Banner>
+
       <FreeBook />
       <Footer></Footer>
     </>

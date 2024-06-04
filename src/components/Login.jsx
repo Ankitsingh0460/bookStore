@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+
 function Login() {
   const {
     register,
@@ -9,7 +11,26 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+    await axios
+      .post("http://localhost:8001/user/login", userInfo)
+      .then((res) => {
+        if (res.data) {
+          alert("Login Sucessfull");
+          window.location.reload();
+        }
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert("error" + error.response.data.message);
+        }
+      });
+  };
 
   return (
     <>
@@ -28,9 +49,9 @@ function Login() {
               ✕
             </Link>
 
-            <h3 className="font-bold text-lg text-center">LogIn</h3>
+            <h3 className="font-bold text-lg text-center text-black">LogIn</h3>
             <div className="mt-4">
-              <span className="m-2 text-base">Email</span>
+              <span className="m-2 text-base text-black">Email</span>
               <br />
               <input
                 type="email"
@@ -44,9 +65,9 @@ function Login() {
                   This field is required
                 </span>
               )}
-              <br />
+
               <div className="mt-4">
-                <span className="m-2 text-base">Password</span>
+                <span className="m-2 text-base text-black">Password</span>
                 <br />
                 <input
                   type="password"

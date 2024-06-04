@@ -6,7 +6,7 @@ function Contect() {
   return (
     <>
       <Navbar />
-      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 mt-40 flex justify-center ">
+      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 py-40 flex justify-center ">
         <div className="flex-wrap">
           <h1 className="text-4xl text-center ">Contact Us</h1>
 
