@@ -1,4 +1,4 @@
-# Backend File Is In Master Branch ANd FrontEnd File In Main Branch
+# Backend File Is In Master Branch And FrontEnd File In Main Branch
 
 # React + Vite
 
