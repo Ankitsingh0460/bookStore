@@ -12,7 +12,7 @@
 ![Screenshot 2024-06-05 032422](https://github.com/Ankitsingh0460/bookStore/assets/101083216/dd7561a3-f54c-4559-9547-3ca52ca3b5d1)
 
                                                            #Backend
-![image](https://github.com/Ankitsingh0460/bookStore/assets/101083216/9c486149-c7ff-4dd8-afb5-ad18df6763e6)
+
 
 
 
